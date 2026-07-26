@@ -2,7 +2,7 @@ https://kenjilao-20.github.io/KenjiLao-20/ <br>
 
 Kenji Manuel Lao - IT Student Portfolio <br>
 
-A modern, responsive portfolio website for an IT student specializing in Game Development. Features a dark/light theme toggle, interactive Snake game, and an enhanced certificate viewer. <br>
+A modern, responsive portfolio website for an IT student specializing in Game Development. Features certificate viewer. <br>
 
 Enhanced Certificate Gallery <br>
 Click any certificate to view in full-screen modal <br>
