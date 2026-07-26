@@ -1,34 +1,4 @@
 /* ═══════════════════════════════════════════════════════════════
-   THEME TOGGLE
-═══════════════════════════════════════════════════════════════ */
-const themeToggle = document.getElementById('themeToggle');
-const themeIcon   = themeToggle.querySelector('i');
-const themeText   = themeToggle.querySelector('span');
-
-// Apply saved theme on load
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-  document.body.classList.replace('dark-mode', 'light-mode');
-  themeIcon.classList.replace('fa-moon', 'fa-sun');
-  themeText.textContent = 'Light Mode';
-}
-
-themeToggle.addEventListener('click', () => {
-  const isDark = document.body.classList.contains('dark-mode');
-  if (isDark) {
-    document.body.classList.replace('dark-mode', 'light-mode');
-    themeIcon.classList.replace('fa-moon', 'fa-sun');
-    themeText.textContent = 'Light Mode';
-    localStorage.setItem('theme', 'light');
-  } else {
-    document.body.classList.replace('light-mode', 'dark-mode');
-    themeIcon.classList.replace('fa-sun', 'fa-moon');
-    themeText.textContent = 'Dark Mode';
-    localStorage.setItem('theme', 'dark');
-  }
-});
-
-/* ═══════════════════════════════════════════════════════════════
    MOBILE MENU
 ═══════════════════════════════════════════════════════════════ */
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -89,13 +59,16 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
 /* ═══════════════════════════════════════════════════════════════
-   CONTACT FORM
+   CONTACT FORM (only if the form exists)
 ═══════════════════════════════════════════════════════════════ */
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-  e.preventDefault();
-  alert('Thank you for your message! I will get back to you soon.');
-  this.reset();
-});
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Thank you for your message! I will get back to you soon.');
+    this.reset();
+  });
+}
 
 /* ═══════════════════════════════════════════════════════════════
    CERTIFICATE FILTER
@@ -133,6 +106,43 @@ const modalNext        = document.getElementById('modalNext');
 let currentModalIndex = 0;
 
 const certificateData = [
+  // 1. IT Specialist - Cybersecurity
+  {
+    title:       'IT Specialist - Cybersecurity',
+    provider:    'Certiport (Pearson VUE)',
+    date:        'Issued: 2025',
+    image:       'assets/images/pic11.png',
+    description: 'Foundational cybersecurity certification covering key security paradigms, terminology, and mindset. Recognizes the importance of security and threats to business.',
+    skills:      ['Cybersecurity', 'Ethical Hacking', 'Information Security', 'Security Analyst', 'EC-Council']
+  },
+  // 2. Introduction to Data Science
+  {
+    title:       'Introduction to Data Science',
+    provider:    'Cisco Networking Academy',
+    date:        'Issued: 2025',
+    image:       'assets/images/pic10.png',
+    description: 'Overview of the promises and challenges of data analytics, its role in AI and Machine Learning, and career pathways in the field.',
+    skills:      ['Data Science', 'Data Analytics', 'AI', 'Machine Learning', 'Career Pathways']
+  },
+  // 3. Data Analytics Essentials
+  {
+    title:       'Data Analytics Essentials',
+    provider:    'Cisco Networking Academy',
+    date:        'Issued: 2025',
+    image:       'assets/images/pic9.png',
+    description: 'Hands-on data analytics using Excel, SQL, and Tableau. Learn to transform, analyze, and present data to create business value.',
+    skills:      ['Data Analytics', 'Excel', 'SQL', 'Tableau', 'Data Visualization']
+  },
+  // 4. AI Fundamentals
+  {
+    title:       'AI Fundamentals: Foundations for Understanding AI',
+    provider:    'Cisco Networking Academy / IBM SkillsBuild',
+    date:        'Issued: 2025',
+    image:       'assets/images/pic8.png',
+    description: 'Foundations of artificial intelligence, machine learning, neural networks, deep learning, bias and fairness, and practical applications of AI in everyday and professional contexts.',
+    skills:      ['Artificial Intelligence', 'Machine Learning', 'Neural Networks', 'Deep Learning', 'AI Ethics']
+  },
+  // 5. Networking Basics
   {
     title:       'Networking Basics',
     provider:    'Netacad',
@@ -141,6 +151,7 @@ const certificateData = [
     description: 'Completed comprehensive course covering the foundation of networking and network devices, media, and protocols. You will observe data flowing through a network and configure devices to connect to networks.',
     skills:      ['Networking', 'Cisco Packet Tracer']
   },
+  // 6. Introduction to CSS (TESDA)
   {
     title:       'Introduction to CSS',
     provider:    'TESDA',
@@ -149,6 +160,7 @@ const certificateData = [
     description: 'Completed the prerequisite module for Computer Systems Servicing NC II. This course covers fundamental computer concepts and system servicing basics.',
     skills:      ['Computer Fundamentals', 'CSS']
   },
+  // 7. Installing and Configuring Computer Systems (TESDA)
   {
     title:       'Installing and Configuring Computer Systems',
     provider:    'TESDA',
@@ -157,6 +169,7 @@ const certificateData = [
     description: 'Completed module about installing and configuring computer hardware and software, including system setup, driver installation, and basic troubleshooting.',
     skills:      ['Computer System', 'Hardware', 'Software']
   },
+  // 8. Setting Up Computer Networks (TESDA)
   {
     title:       'Setting Up Computer Networks',
     provider:    'TESDA',
@@ -165,6 +178,7 @@ const certificateData = [
     description: 'Completed comprehensive module on setting up computer networks, including network design, cable installation, router configuration, and network troubleshooting.',
     skills:      ['Computer Networks', 'Network Setup', 'Troubleshooting']
   },
+  // 9. Setting Up Computer Servers (TESDA)
   {
     title:       'Setting Up Computer Servers',
     provider:    'TESDA',
@@ -173,6 +187,7 @@ const certificateData = [
     description: 'Completed module on setting up computer servers, including server installation, configuration, user management, and server maintenance.',
     skills:      ['Computer Server', 'Server Configuration', 'User Management']
   },
+  // 10. Maintaining Computer Systems and Networks (TESDA)
   {
     title:       'Maintaining Computer Systems and Networks',
     provider:    'TESDA',
@@ -263,239 +278,4 @@ window.addEventListener('load', () => {
     const img = new Image();
     img.src = cert.image;
   });
-});
-
-/* ═══════════════════════════════════════════════════════════════
-   SNAKE GAME
-═══════════════════════════════════════════════════════════════ */
-const snakeCanvas = document.getElementById('snakeGameCanvas');
-const snakeCtx    = snakeCanvas.getContext('2d');
-
-// Constants
-const TILE        = 16;
-const COLS        = 25;
-const ROWS        = 25;
-const INIT_SPEED  = 120;
-
-// State
-let snake       = [];
-let food        = {};
-let dir         = 'RIGHT';
-let nextDir     = 'RIGHT';
-let running     = false;
-let gameOver    = false;
-let paused      = false;
-let score       = 0;
-let gameLoop    = null;
-let speed       = INIT_SPEED;
-let highScore   = parseInt(localStorage.getItem('snakeHighScore')) || 0;
-
-// Init on page load
-window.addEventListener('load', () => {
-  snakeCanvas.width  = COLS * TILE;
-  snakeCanvas.height = ROWS * TILE;
-  document.getElementById('snakeHighScore').textContent = highScore;
-  setupMobileControls();
-  startGame();
-});
-
-/* ── Mobile Controls ── */
-function setupMobileControls() {
-  const controls = {
-    snakeBtnUp:    () => { if (dir !== 'DOWN')  nextDir = 'UP';    },
-    snakeBtnDown:  () => { if (dir !== 'UP')    nextDir = 'DOWN';  },
-    snakeBtnLeft:  () => { if (dir !== 'RIGHT') nextDir = 'LEFT';  },
-    snakeBtnRight: () => { if (dir !== 'LEFT')  nextDir = 'RIGHT'; }
-  };
-
-  Object.entries(controls).forEach(([id, handler]) => {
-    const btn = document.getElementById(id);
-    if (!btn) return;
-    btn.addEventListener('click',      () => { if (running && !paused) handler(); });
-    btn.addEventListener('touchstart', e  => { e.preventDefault(); if (running && !paused) handler(); });
-  });
-}
-
-/* ── Game Start ── */
-function startGame() {
-  snake    = [{ x: 5, y: 5 }, { x: 4, y: 5 }, { x: 3, y: 5 }];
-  dir      = 'RIGHT';
-  nextDir  = 'RIGHT';
-  score    = 0;
-  gameOver = false;
-  running  = true;
-  paused   = false;
-  speed    = INIT_SPEED;
-
-  document.getElementById('snakeScore').textContent = 0;
-  document.getElementById('snakeGameOverScreen').classList.remove('show');
-
-  spawnFood();
-  if (gameLoop) clearInterval(gameLoop);
-  gameLoop = setInterval(tick, speed);
-}
-
-/* ── Food Spawn ── */
-function spawnFood() {
-  do {
-    food = {
-      x: Math.floor(Math.random() * COLS),
-      y: Math.floor(Math.random() * ROWS)
-    };
-  } while (snake.some(s => s.x === food.x && s.y === food.y));
-}
-
-/* ── Game Tick ── */
-function tick() {
-  if (!running || paused) return;
-
-  dir = nextDir;
-  const head = { ...snake[0] };
-
-  if      (dir === 'UP')    head.y--;
-  else if (dir === 'DOWN')  head.y++;
-  else if (dir === 'LEFT')  head.x--;
-  else if (dir === 'RIGHT') head.x++;
-
-  // Wall collision
-  if (head.x < 0 || head.x >= COLS || head.y < 0 || head.y >= ROWS) {
-    endGame(); return;
-  }
-  // Self collision
-  if (snake.some(s => s.x === head.x && s.y === head.y)) {
-    endGame(); return;
-  }
-
-  snake.unshift(head);
-
-  // Ate food
-  if (head.x === food.x && head.y === food.y) {
-    score += 10;
-    document.getElementById('snakeScore').textContent = score;
-
-    // Speed up every 50 points
-    if (score % 50 === 0 && speed > 60) {
-      speed -= 10;
-      clearInterval(gameLoop);
-      gameLoop = setInterval(tick, speed);
-    }
-    spawnFood();
-  } else {
-    snake.pop();
-  }
-
-  draw();
-}
-
-/* ── Draw ── */
-function draw() {
-  // Background
-  snakeCtx.fillStyle = '#9bbc0f';
-  snakeCtx.fillRect(0, 0, snakeCanvas.width, snakeCanvas.height);
-
-  // Grid
-  snakeCtx.strokeStyle = 'rgba(15, 56, 15, 0.1)';
-  snakeCtx.lineWidth   = 0.5;
-  for (let x = 0; x <= COLS; x++) {
-    snakeCtx.beginPath();
-    snakeCtx.moveTo(x * TILE, 0);
-    snakeCtx.lineTo(x * TILE, snakeCanvas.height);
-    snakeCtx.stroke();
-  }
-  for (let y = 0; y <= ROWS; y++) {
-    snakeCtx.beginPath();
-    snakeCtx.moveTo(0,                 y * TILE);
-    snakeCtx.lineTo(snakeCanvas.width, y * TILE);
-    snakeCtx.stroke();
-  }
-
-  // Food
-  snakeCtx.fillStyle = '#0f380f';
-  snakeCtx.fillRect(food.x * TILE, food.y * TILE, TILE, TILE);
-
-  // Snake segments
-  snake.forEach((seg, i) => {
-    snakeCtx.fillStyle   = i === 0 ? '#0f380f' : '#306230';
-    snakeCtx.fillRect(seg.x * TILE, seg.y * TILE, TILE, TILE);
-    snakeCtx.strokeStyle = i === 0 ? '#9bbc0f' : '#0f380f';
-    snakeCtx.lineWidth   = 1;
-    snakeCtx.strokeRect(seg.x * TILE, seg.y * TILE, TILE, TILE);
-  });
-}
-
-/* ── End Game ── */
-function endGame() {
-  running  = false;
-  gameOver = true;
-  clearInterval(gameLoop);
-
-  if (score > highScore) {
-    highScore = score;
-    localStorage.setItem('snakeHighScore', highScore);
-    document.getElementById('snakeHighScore').textContent = highScore;
-  }
-
-  document.getElementById('snakeFinalScore').textContent = score;
-  document.getElementById('snakeGameOverScreen').classList.add('show');
-}
-
-/* ── Public Controls (called from HTML onclick) ── */
-function restartSnakeGame() {
-  startGame();
-}
-
-function pauseSnakeGame() {
-  if (gameOver) return;
-
-  paused = !paused;
-  const pauseBtn = document.querySelector('.game-btn:first-child');
-
-  if (paused) {
-    pauseBtn.innerHTML = '<i class="fas fa-play"></i> Resume';
-    // Draw paused overlay
-    snakeCtx.fillStyle    = 'rgba(15, 56, 15, 0.88)';
-    snakeCtx.fillRect(0, 0, snakeCanvas.width, snakeCanvas.height);
-    snakeCtx.fillStyle    = '#9bbc0f';
-    snakeCtx.font         = 'bold 26px Orbitron, Arial';
-    snakeCtx.textAlign    = 'center';
-    snakeCtx.textBaseline = 'middle';
-    snakeCtx.fillText('PAUSED', snakeCanvas.width / 2, snakeCanvas.height / 2);
-  } else {
-    pauseBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
-  }
-}
-
-/* ── Keyboard Controls ── */
-document.addEventListener('keydown', e => {
-  // Only intercept arrow keys if the projects section is visible
-  const projectsSection = document.getElementById('projects');
-  const rect = projectsSection.getBoundingClientRect();
-  const inView = rect.top <= window.innerHeight && rect.bottom >= 0;
-  if (!inView) return;
-
-  // Space: pause or restart
-  if (e.code === 'Space') {
-    e.preventDefault();
-    if (gameOver) restartSnakeGame();
-    else          pauseSnakeGame();
-    return;
-  }
-
-  if (!running || paused) return;
-
-  const dirMap = {
-    ArrowUp:    'UP',    w: 'UP',    W: 'UP',
-    ArrowDown:  'DOWN',  s: 'DOWN',  S: 'DOWN',
-    ArrowLeft:  'LEFT',  a: 'LEFT',  A: 'LEFT',
-    ArrowRight: 'RIGHT', d: 'RIGHT', D: 'RIGHT'
-  };
-
-  const opposite = { UP: 'DOWN', DOWN: 'UP', LEFT: 'RIGHT', RIGHT: 'LEFT' };
-  const newDir   = dirMap[e.key];
-
-  if (newDir && opposite[newDir] !== dir) {
-    nextDir = newDir;
-    // Prevent page scroll on arrow keys
-    if (e.key.startsWith('Arrow')) e.preventDefault();
-  }
 });
