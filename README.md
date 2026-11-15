@@ -1,6 +1,6 @@
 <div align="center">
 
-# Hi there, I'm Kenji Manuel Lao! 👋
+# I'm Kenji Manuel Lao
 ### 3rd Year IT Student | Game Development & Software Engineering
 
 <p align="center">
@@ -111,5 +111,4 @@ I hold multiple professional certifications from **Cisco**, **Certiport**, **TES
 
 <div align="center">
   <i>Made with ❤️ by Kenji Manuel Lao</i><br>
-  <b>Let's build something amazing together!</b>
 </div>
