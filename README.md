@@ -90,15 +90,20 @@ I am a dedicated 3rd-year IT student specializing in **Game Development**, curre
       <a href="https://github.com/KenjiLao-20/WST_FinalProject"><img src="https://img.shields.io/badge/View_Code-black?style=for-the-badge&logo=github" alt="View Code"></a>
     </td>
   </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🕷️ WebScraper Tool</h3>
+      <p>A powerful Python-based web scraping tool for extracting, processing, and exporting data to CSV, JSON, and Excel.</p>
+      <a href="https://kenjilao-20.github.io/WebScraper/"><img src="https://img.shields.io/badge/Live_Demo-00d4ff?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Demo"></a>
+      <a href="https://github.com/kenjilao-20/WebScraper"><img src="https://img.shields.io/badge/View_Code-black?style=for-the-badge&logo=github" alt="View Code"></a>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🏪 Enca Trading POS</h3>
+      <p>A web-based Point of Sale & Inventory Management System for a construction supply store, featuring real-time stock alerts and sales analytics.</p>
+      <a href="https://github.com/KenjiLao-20/EncaTrading_Database-POS"><img src="https://img.shields.io/badge/View_Code-black?style=for-the-badge&logo=github" alt="View Code"></a>
+    </td>
+  </tr>
 </table>
-
-<div align="center">
-  <br>
-  <h3>🕷️ WebScraper Tool</h3>
-  <p>A powerful Python-based web scraping tool for extracting, processing, and exporting data to CSV, JSON, and Excel.</p>
-  <a href="https://kenjilao-20.github.io/WebScraper/"><img src="https://img.shields.io/badge/Live_Demo-00d4ff?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Demo"></a>
-  <a href="https://github.com/kenjilao-20/WebScraper"><img src="https://img.shields.io/badge/View_Code-black?style=for-the-badge&logo=github" alt="View Code"></a>
-</div>
 
 <br><br>
 
