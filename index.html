@@ -7,6 +7,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Updated styles to prevent image cropping */
+    .project-image-container {
+      width: 100%;
+      height: 260px; /* Slightly taller to show more of the image */
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      background: #050a14; /* Matches body background for letterboxing */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .project-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Changed from 'cover' to 'contain' so full image shows */
+      transition: transform 0.5s ease;
+    }
+    .project-card:hover .project-image {
+      transform: scale(1.02); /* Softer zoom effect */
+    }
+  </style>
 </head>
 <body class="dark-mode">
 
@@ -14,7 +37,6 @@
   <header id="header">
     <div class="container">
       <nav class="navbar">
-        <a href="#" class="logo"><span>KML</span>.DEV</a>
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -72,7 +94,7 @@
 
       <div class="about-content">
         <div class="about-text reveal">
-          <p>I'm a dedicated 2nd year IT student specializing in Game Development, currently pursuing my degree while building practical skills through personal projects and coursework. My focus is on creating engaging interactive experiences through code.</p>
+          <p>I'm a dedicated 3rd year IT student specializing in Game Development, currently pursuing my degree while building practical skills through personal projects and coursework. My focus is on creating engaging interactive experiences through code.</p>
           <p>My journey in programming began with web technologies, and has expanded to include game development fundamentals, database management, and multiple programming paradigms. I enjoy tackling challenging problems and seeing my code come to life in interactive applications.</p>
           <p>When I'm not studying or coding, I participate in game jams, contribute to open-source projects, and explore new game engines and development tools to expand my technical toolkit.</p>
         </div>
@@ -121,7 +143,8 @@
           <div class="skill-item"><i class="fab fa-python"></i> Python</div>
           <div class="skill-item"><i class="fas fa-code"></i> Java</div>
           <div class="skill-item"><i class="fas fa-code"></i> C++</div>
-          <div class="skill-item"><i class="fas fa-code"></i> C# (Unity)</div>
+          <div class="skill-item"><i class="fas fa-code"></i> C#</div>
+          <div class="skill-item"><i class="fas fa-code"></i> GDScript</div>
         </div>
       </div>
 
@@ -136,6 +159,8 @@
           <div class="skill-item"><i class="fab fa-node-js"></i> Node.js</div>
           <div class="skill-item"><i class="fab fa-github"></i> GitHub</div>
           <div class="skill-item"><i class="fas fa-code"></i> Visual Studio</div>
+          <div class="skill-item"><i class="fas fa-cube"></i> Godot Engine</div>
+          <div class="skill-item"><i class="fas fa-cube"></i> OpenGL</div>
         </div>
       </div>
 
@@ -144,7 +169,8 @@
         <h3><i class="fas fa-gamepad"></i> Game Development</h3>
         <div class="skill-items">
           <div class="skill-item"><i class="fas fa-cube"></i> 2D / 3D Graphics</div>
-          <div class="skill-item"><i class="fas fa-gamepad"></i> Unity / C#</div>
+          <div class="skill-item"><i class="fas fa-gamepad"></i> Godot Engine</div>
+          <div class="skill-item"><i class="fas fa-cube"></i> OpenGL 3D</div>
           <div class="skill-item"><i class="fas fa-puzzle-piece"></i> Game Mechanics</div>
           <div class="skill-item"><i class="fas fa-paint-brush"></i> UI/UX Design</div>
           <div class="skill-item"><i class="fas fa-sitemap"></i> Game Design</div>
@@ -179,6 +205,8 @@
       <div class="skill-category reveal">
         <h3><i class="fas fa-network-wired"></i> IT & Other Skills</h3>
         <div class="skill-items">
+          <div class="skill-item"><i class="fas fa-cash-register"></i> System Integration (POS & Inventory)</div>
+          <div class="skill-item"><i class="fas fa-database"></i> Database Management</div>
           <div class="skill-item"><i class="fas fa-project-diagram"></i> System Design</div>
           <div class="skill-item"><i class="fas fa-mobile-alt"></i> Responsive Design</div>
           <div class="skill-item"><i class="fas fa-search"></i> Problem Solving</div>
@@ -200,11 +228,136 @@
       </div>
 
       <div class="projects-grid">
-        <!-- ── 5 Minutes Till Dawn Project Card ── -->
+        
+        <!-- ── 1. Space Station Project Card ── -->
+        <div class="project-card reveal">
+          <div class="project-header">
+            <h3>Space Station Game</h3>
+            <p>2D Top-Down Puzzle Adventure</p>
+          </div>
+
+          <div class="project-image-container">
+            <img src="assets/images/space.png" alt="Space Station Gameplay" class="project-image">
+          </div>
+
+          <div class="project-content">
+            <div class="project-description">
+              <p>You wake up to find the space station's power completely offline. Explore dark corridors, find the right tools, and repair the electrical systems to bring the station back to life. You might need some help figuring out how to use the equipment...</p>
+            </div>
+
+            <div class="project-features">
+              <h4>// Key Features</h4>
+              <ul class="features-list">
+                <li>Atmospheric exploration and storytelling</li>
+                <li>Item pickups and inventory management</li>
+                <li>NPC dialogue and hint system</li>
+                <li>Puzzle mechanics (repairing wires)</li>
+                <li>Dynamic environment changes (lights on)</li>
+              </ul>
+            </div>
+
+            <div class="tech-stack">
+              <span class="tech-tag">Godot 4</span>
+              <span class="tech-tag">GDScript</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/KenjiLao-20/Space-Station-Game" target="_blank" rel="noopener noreferrer" class="btn btn-outline project-link">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── 2. Harvest Valley Project Card ── -->
+        <div class="project-card reveal">
+          <div class="project-header">
+            <h3>Harvest Valley Game</h3>
+            <p>2D RPG Farming Simulation</p>
+          </div>
+
+          <div class="project-image-container">
+            <img src="assets/images/harvest_valley.png" alt="Harvest Valley Gameplay" class="project-image">
+          </div>
+
+          <div class="project-content">
+            <div class="project-description">
+              <p>Inherit a small plot of land and a dream. Plant seeds, water your crops, harvest them, and sell them at the local market. Work hard, manage your time, and try to reach your goal of 100 coins to make the valley prosperous again.</p>
+            </div>
+
+            <div class="project-features">
+              <h4>// Key Features</h4>
+              <ul class="features-list">
+                <li>Plant, water, and harvest crops</li>
+                <li>Manage inventory and select seeds</li>
+                <li>Sell goods at the local market shop</li>
+                <li>Interactive player animations and feedback</li>
+                <li>Win condition triggered at 100 coins</li>
+              </ul>
+            </div>
+
+            <div class="tech-stack">
+              <span class="tech-tag">Godot 4</span>
+              <span class="tech-tag">GDScript</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/KenjiLao-20/Harvest-Valley-Game" target="_blank" rel="noopener noreferrer" class="btn btn-outline project-link">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── 3. Outbreak TD Project Card ── -->
+        <div class="project-card reveal">
+          <div class="project-header">
+            <h3>Outbreak TD</h3>
+            <p>2D Tower Defense Strategy</p>
+          </div>
+
+          <div class="project-image-container">
+            <img src="assets/images/outbreak.png" alt="Outbreak TD Gameplay" class="project-image">
+          </div>
+
+          <div class="project-content">
+            <div class="project-description">
+              <p>The outpost is under siege! Waves of relentless creatures are marching down the path to destroy your Home Base. Manage your gold wisely, place powerful turrets, and survive the onslaught with only 5 HP and 10 starting gold.</p>
+            </div>
+
+            <div class="project-features">
+              <h4>// Key Features</h4>
+              <ul class="features-list">
+                <li>5 unique towers (Sentry, Laser, Plant, Ice, Mine)</li>
+                <li>28 standard waves + secret Boss Wave</li>
+                <li>Economy and HP management</li>
+                <li>Strategic tile-based tower placement</li>
+                <li>Scaling enemy difficulty and types</li>
+              </ul>
+            </div>
+
+            <div class="tech-stack">
+              <span class="tech-tag">Godot 4</span>
+              <span class="tech-tag">GDScript</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/KenjiLao-20/OutbreakTD-Game" target="_blank" rel="noopener noreferrer" class="btn btn-outline project-link">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── 4. 5 Minutes Till Dawn Project Card ── -->
         <div class="project-card reveal">
           <div class="project-header">
             <h3>5 Minutes Till Dawn - Top Down Shooter</h3>
             <p>Survival Shooter Game</p>
+          </div>
+          
+          <div class="project-image-container">
+            <img src="assets/images/5minute.png" alt="5 Minutes Till Dawn Gameplay" class="project-image">
           </div>
 
           <div class="project-content">
@@ -242,11 +395,15 @@
           </div>
         </div>
 
-        <!-- ── WebScraper Project Card ── -->
+        <!-- ── 5. WebScraper Project Card ── -->
         <div class="project-card reveal">
           <div class="project-header">
             <h3>WebScraper Tool</h3>
             <p>Data Extraction & Web Crawling</p>
+          </div>
+
+          <div class="project-image-container">
+            <img src="assets/images/scraper.png" alt="WebScraper Tool Interface" class="project-image">
           </div>
 
           <div class="project-content">
@@ -285,6 +442,50 @@
             </div>
           </div>
         </div>
+
+        <!-- ── 6. Enca Trading POS Project Card ── -->
+        <div class="project-card reveal">
+          <div class="project-header">
+            <h3>Enca Trading POS & Inventory</h3>
+            <p>System Integration Project</p>
+          </div>
+
+          <div class="project-image-container">
+            <img src="assets/images/enca.png" alt="Enca Trading POS Interface" class="project-image">
+          </div>
+
+          <div class="project-content">
+            <div class="project-description">
+              <p>A comprehensive web-based Point of Sale (POS) and Inventory Management System built for a local construction supply store. This system digitalizes their daily operations, replacing manual logbooks with automated checkout, real-time stock tracking, and intelligent data analytics.</p>
+            </div>
+
+            <div class="project-features">
+              <h4>// Key Features</h4>
+              <ul class="features-list">
+                <li>POS with multiple payment methods & auto-change calculation</li>
+                <li>Real-time inventory tracking and low-stock alerts</li>
+                <li>Sales analytics with 7-day forecasting</li>
+                <li>Role-based access control (Admin & Cashier)</li>
+                <li>CSV Data Import/Export for products and sales</li>
+              </ul>
+            </div>
+
+            <div class="tech-stack">
+              <span class="tech-tag">PHP</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">Chart.js</span>
+              <span class="tech-tag">CSS3</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/KenjiLao-20/EncaTrading_Database-POS" target="_blank" rel="noopener noreferrer" class="btn btn-outline project-link">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
